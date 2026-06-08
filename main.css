@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.625vw;
+    transition: all 0.4s ease;
+}
+
+
+@media (max-width: 768px) {
+    *{
+        font-size: 3.2vw
+    }
+}
+
+
+
+/*
+надеюсь то что не проблема что на ремах просто раньше часто с ними работал в искре)
+нравится верстка на зуме под планшет адаптив пилить не надо)
+без вебпака собирал на калькуляторе посчитал быстро
+
+за основу брался шрифт 12px потому что в кнопке он
+зависимости от ширины экрана тут считаются
+
+под мобилку взял под разрешение 375 (дэфолт, но помоему экраны уже минимум 400)
+под десктоп 1980 как в макете
+
+сайт конвертор
+https://cssunitconverter.vercel.app/px-to-vw
+*/
+
+body {
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.hero_section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none"%3E%3Cpath fill-rule="evenodd" clip-rule="evenodd" d="M172.24 0H1920V1080H1759.84L172.24 0Z" fill="%23F26D6D"/%3E%3Cpath d="M0 1080V0H172.24L1759.84 1080H0Z" fill="%23F04949"/%3E%3C/svg%3E');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero_section-btn {
+    padding: 1rem 4.66rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    background: #fff;
+    border: none;
+    font-style: normal;
+    line-height: normal;
+    border-radius: 0.33rem;
+    cursor: pointer;
+    box-shadow: 0 0.33rem 2.5rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.hero_section-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal_overlay.active {
+    display: flex;
+}
+
+.modal {
+    width: 46rem;
+    height: 38.9167rem;
+    background: #fff;
+    border-radius: 0.333rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: all 0.3s ease;
+}
+
+.modal.modal_show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal_header {
+    background: #E8EBF3;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    position: relative;
+    border-bottom: 0.0417rem solid rgba(0, 0, 0, 0.1);
+}
+
+.modal_dots {
+    position: absolute;
+    top: 0.66rem;
+    left: 1.25rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 0.666rem;
+    height: 0.666rem;
+    border-radius: 50%;
+    background: #E85162;
+    border: none;
+}
+
+.dot:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.dot:nth-child(2) {
+    background: #F29B3D;
+}
+
+.dot:nth-child(3) {
+    background: #40AB55;
+}
+
+.modal_content {
+    padding: 0;
+    height: calc(100% - 2rem);
+    overflow-y: auto;
+    background: #fff;
+}
+
+
+
+.info_block {
+    display: flex;
+    width: 46rem;
+    height: 10.0833rem;
+    padding: 3.333rem 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9167rem;
+    background: #DAE0E4;
+}
+
+.info_block > a {
+    width: 9.5rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    border-radius: 0.333rem;
+    background: #C5CBCF;
+    cursor: pointer;
+}
+
+.info_block > a:hover {
+    opacity: 0.6;
+}
+
+.info_block > a:nth-child(2) {
+    width: 3.4167rem;
+}
+
+.products_block {
+    padding: 1.667rem 9.1667rem;
+    background: #fff;
+}
+
+.products_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.product_card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.833rem;
+    cursor: pointer;
+}
+
+.product_card:hover {
+    opacity: 0.6;
+}
+
+.product_icon {
+    width: 8.333rem;
+    height: 8.333rem;
+    background: #DAE0E4;
+    border-radius: 0.333rem;
+}
+
+
+.product_card > div:last-child {
+    height: 1.25rem;
+    border-radius: 0.333rem;
+    background: #C6CACD;
+}
+
+.product_card:nth-child(1) > div:last-child,
+.product_card:nth-child(4) > div:last-child {
+    width: 3.4167rem;
+}
+
+.product_card:nth-child(2) > div:last-child,
+.product_card:nth-child(5) > div:last-child {
+    width: 7.333rem;
+}
+
+.product_card:nth-child(3) > div:last-child,
+.product_card:nth-child(6) > div:last-child {
+    width: 5.5833rem;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .info_block {
+        width: 100%;
+    }
+
+    .product_icon{
+        width: 100%;
+    }
+
+    .products_block {
+        padding: 1.667rem 1rem;
+    }
+}
