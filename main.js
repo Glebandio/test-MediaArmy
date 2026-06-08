@@ -1,6 +1,7 @@
 const openModalBtn = document.getElementById('modal');
 const modalOverlay = document.getElementById('modalOverlay');
 const modal = document.querySelector('.modal');
+const closeBtn = document.querySelector('.dot');
 
 function openModal(buttonId) {
     modalOverlay.classList.add('active');
@@ -19,6 +20,10 @@ function closeModal() {
 openModalBtn.addEventListener('click', function(event) {
     const buttonId = event.currentTarget.id;
     openModal(buttonId);
+});
+
+closeBtn.addEventListener('click', function() {
+    closeModal();
 });
 
 modalOverlay.addEventListener('click', function(event) {
